@@ -50,7 +50,7 @@ app.get("/new/*", (req, res) => {
         urls.insert({"_id": idInsertRand, "url":urlValue}, function(err, docs) {
             insertedID = docs['insertedIds'][0];
             
-            var isURL = (urlValue.includesprocess.env.PORT("."))&&((urlValue.startsWith("http")));
+            var isURL = (urlValue.includes("."))&&((urlValue.startsWith("http")));
         
             if(isURL) {
                 res.json({"urlShort":"https://apiprojects-benws.c9users.io/" + insertedID, "url":urlValue});
