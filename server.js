@@ -15,7 +15,7 @@ var result;
 app.get("/:id", (req,res) =>{
      
     //database connection
-    mongo.connect('mongodb://localhost:27017/' + 'local', function (err, db) {
+    mongo.connect('mongodb://heroku_sv3gzsts:ghanjlbubvodkmbra92slljng9@ds041536.mlab.com:41536/heroku_sv3gzsts', function (err, db) {
         
         var urls = db.collection("urls");
         
