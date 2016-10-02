@@ -1,16 +1,16 @@
 doctype 5
 html
+  head
+    style code {background-color:#eeeeee;}
   body
     div(style = "font-family:arial")
-      h2(style = "color:#61B329") Timestamp Microservice
-      p Application accepts either:
-      ul  
-        li Natural language date
-        li Unix time
+      h2(style = "color:#61B329") URL Shortener Microservice
+      p This input returns shortened version of URL:
+      code https://benws-urlshortener.herokuapp.com/new/{URL}
       p returns date in both formats.
-      p Usage example:
-      code https://apiprojects-benws.c9users.io/index/December%206,%201990
-      br
-      code https://apiprojects-benws.c9users.io/index/660441600000
+      h4 Usage example:
+      p Visiting this URL:
+      code https://benws-urlshortener.herokuapp.com/new/http://www.google.com
       p returns
-      code {"unix":660441600000,"natural":"December 6,1990"}
+      code {"urlShort":"https://apiprojects-benws.c9users.io/1049","url":"http://www.google.com"}
+      p The user may then visit [#code https://apiprojects-benws.c9users.io/1049/] which re-directs to [#code http://www.google.com] 
