@@ -10,6 +10,14 @@ var mongo = require('mongodb').MongoClient;
 var insertedID;
 var result;
 
+//set view directory
+app.set("views", "./views");
+app.set("view engine", "pug");
+
+app.get("/index", function(req,res) {
+    res.render("index");
+});
+
 //set up method for processing redirects
 
 app.get("/:id", (req,res) =>{
@@ -65,5 +73,10 @@ app.get("/new/*", (req, res) => {
         
     })
 })
+
+app.get("/*", function(req,res) {
+  res.redirect("/index");
+  // res.end("This is the index page");
+});
 
 app.listen(process.env.PORT);

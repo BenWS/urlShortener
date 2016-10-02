@@ -1,0 +1,16 @@
+doctype 5
+html
+  body
+    div(style = "font-family:arial")
+      h2(style = "color:#61B329") Timestamp Microservice
+      p Application accepts either:
+      ul  
+        li Natural language date
+        li Unix time
+      p returns date in both formats.
+      p Usage example:
+      code https://apiprojects-benws.c9users.io/index/December%206,%201990
+      br
+      code https://apiprojects-benws.c9users.io/index/660441600000
+      p returns
+      code {"unix":660441600000,"natural":"December 6,1990"}
