@@ -5,7 +5,6 @@ var mongo = require('mongodb').MongoClient;
 var insertedID;
 var result;
 
-//set view directory
 app.set("views", "./views");
 app.set("view engine", "pug");
 
@@ -13,11 +12,8 @@ app.get("/index", function(req,res) {
     res.render("index");
 });
 
-//set up method for processing redirects
-
 app.get("/:id", (req,res) =>{
      
-    //database connection
     mongo.connect('mongodb://heroku_sv3gzsts:ghanjlbubvodkmbra92slljng9@ds041536.mlab.com:41536/heroku_sv3gzsts', function (err, db) {
         
         var urls = db.collection("urls");
@@ -36,17 +32,12 @@ app.get("/:id", (req,res) =>{
     })
 })
 
-//set up get method for processing requests
-
 app.get("/new/*", (req, res) => {
     
-    //database connection
     mongo.connect('mongodb://heroku_sv3gzsts:ghanjlbubvodkmbra92slljng9@ds041536.mlab.com:41536/heroku_sv3gzsts', function (err, db) {
         
         var urls = db.collection("urls");
         var urlValue = req.path.slice(5);
-        
-        //extract everything after 'new'
         
         var idInsertRand = Math.floor(10000*Math.random());
         
@@ -71,7 +62,6 @@ app.get("/new/*", (req, res) => {
 
 app.get("/*", function(req,res) {
   res.redirect("/index");
-  // res.end("This is the index page");
 });
 
 app.listen(process.env.PORT);
