@@ -61,7 +61,8 @@ app.get("/new/*", (req, res) => {
             var isURL = (urlValue.includes("."))&&((urlValue.startsWith("http")));
         
             if(isURL) {
-                res.json({req.urlBase + insertedID, "url":urlValue});
+                var path = req.urlBase + insertedID
+                res.json({path, "url":urlValue});
                 // res.json({req.baseURL + insertedID, "url":urlValue});
             } else {
                 res.json({"urlShort":"Please send valid URL", "url":urlValue});
