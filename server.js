@@ -61,12 +61,13 @@ app.get("/new/*", (req, res) => {
             var isURL = (urlValue.includes("."))&&((urlValue.startsWith("http")));
         
             if(isURL) {
-                res.json({"urlShort":"https://apiprojects-benws.c9users.io/" + insertedID, "url":urlValue});
+                res.json("urlShort":"https://apiprojects-benws.c9users.io/" + insertedID, "url":urlValue});
+                // res.json({req.baseURL + insertedID, "url":urlValue});
             } else {
                 res.json({"urlShort":"Please send valid URL", "url":urlValue});
             }
             
-            res.end();
+            res.end(req.urlBase);
         });
         
         db.close();
