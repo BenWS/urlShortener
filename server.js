@@ -61,7 +61,7 @@ app.get("/new/*", (req, res) => {
             var isURL = (urlValue.includes("."))&&((urlValue.startsWith("http")));
         
             if(isURL) {
-                var path = req.hostname + insertedID
+                var path = req.hostname + "/" + insertedID
                 res.json({path, "url":urlValue});
                 // res.json({req.baseURL + insertedID, "url":urlValue});
             } else {
