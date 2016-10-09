@@ -1,8 +1,3 @@
-//to complete:
-//find way to refer to domain without explicitly hardcoding 'https://apiprojects-benws.c9users.io/' into programming
-//create how-to-use homepage
-
-
 var express = require('express');
 var app = express();
 var mongo = require('mongodb').MongoClient;
