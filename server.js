@@ -14,7 +14,7 @@ app.get("/index", function(req,res) {
 
 app.get("/:id", (req,res) =>{
      
-    mongo.connect('mongodb://heroku_sv3gzsts:ghanjlbubvodkmbra92slljng9@ds041536.mlab.com:41536/heroku_sv3gzsts', function (err, db) {
+    mongo.connect(process.env.MONGODB_URI, function (err, db) {
         
         var urls = db.collection("urls");
         
@@ -34,7 +34,7 @@ app.get("/:id", (req,res) =>{
 
 app.get("/new/*", (req, res) => {
     
-    mongo.connect('mongodb://heroku_sv3gzsts:ghanjlbubvodkmbra92slljng9@ds041536.mlab.com:41536/heroku_sv3gzsts', function (err, db) {
+    mongo.connect(process.env.MONGODB_URI, function (err, db) {
         
         var urls = db.collection("urls");
         var urlValue = req.path.slice(5);
